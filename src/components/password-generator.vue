@@ -1,11 +1,12 @@
 <template>
+  <header>
+    <h1>PASSWORD GENERATOR</h1>
+  </header>
+  <div id="box">
+    <h1 id="generated-password">{{ password }}</h1>
+  </div>
+
   <section>
-    <header>
-      <h1>PASSWORD GENERATOR</h1>
-    </header>
-    <div id="box">
-      <h1 id="generated-password">{{ password }}</h1>
-    </div>
     <button id="copy-to-clipboard">Copy to Clipboard</button>
     <h2 id="character-set-label">Choose your character set:</h2>
     <input
@@ -47,6 +48,9 @@
       class="button-character-set"
     />
     <label for="symbols">Symbols</label>
+
+    <!-- Slider  -->
+
     <input
       v-on:click="generatePassword()"
       type="range"
@@ -65,7 +69,7 @@
 <script>
 export default {
   data: () => ({
-    password: "ABC",
+    password: "admin",
     passwordLength: "8",
     checkLowerCase: false,
     checkUpperCase: false,
@@ -95,8 +99,8 @@ export default {
         );
       }
       this.password = password;
-      console.log(this.password);
-      console.log(this.checkLowerCase);
+      /* console.log(this.password);
+      console.log(this.checkLowerCase); */
     },
 
     changePasswordLength() {
@@ -157,42 +161,50 @@ header {
   font-size: 1.5rem;
   color: #bbe4e9;
   text-shadow: 0.1em 0.1em 0 hsl(180, 80%, 40%);
+  font-family: "JetBrains Mono", monospace;
 }
 
 #box {
   background-color: lightgray;
   align-content: center;
 
-  height: 3rem;
-  width: 30rem;
+  width: 100%;
+  height: auto;
   display: block;
   color: red;
 }
+
 #generated-password {
   color: red;
   text-align: center;
 }
+
 #copy-to-clipboard {
   font-size: 1.5rem;
   text-align: center;
   background-color: #2292a4;
   color: black;
 }
+
 #character-set-label {
   color: white;
 }
+
 .button-character-set {
   font-size: 1.5rem;
   background-color: black;
   color: #2292a4;
   border: 10px solid lightgray;
 }
+
 input[type="checkbox"] {
   all: unset;
 }
+
 input[type="checkbox"]:checked + label {
   background-color: #2292a4;
 }
+
 input[type="checkbox"]:focus + label {
   border: 5px;
 }
