@@ -1,8 +1,7 @@
 <template>
   <section>
     <header>
-      <h1>PASSWORD</h1>
-      <h1>GENERATOR</h1>
+      <h1>PASSWORD GENERATOR</h1>
     </header>
     <div id="box">
       <h1 id="generated-password">{{ password }}</h1>
@@ -144,19 +143,20 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Arvo");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&display=swap");
 
 html {
-  font-family: Arvo;
+  font-family: "JetBrains Mono", monospace;
   text-align: center;
-  background-color: black;
-
-  color: #2292a4;
+  background-color: #5585b5;
+  color: #bbe4e9;
   margin-top: 60px;
 }
 
 header {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  color: #bbe4e9;
+  text-shadow: 0.1em 0.1em 0 hsl(180, 80%, 40%);
 }
 
 #box {
@@ -173,7 +173,6 @@ header {
   text-align: center;
 }
 #copy-to-clipboard {
-  font-family: Arvo;
   font-size: 1.5rem;
   text-align: center;
   background-color: #2292a4;
@@ -183,7 +182,6 @@ header {
   color: white;
 }
 .button-character-set {
-  font-family: Arvo;
   font-size: 1.5rem;
   background-color: black;
   color: #2292a4;
