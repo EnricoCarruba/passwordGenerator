@@ -8,7 +8,7 @@
       <h1 id="generated-password">{{ password }}</h1>
     </div>
     <button id="copy-to-clipboard">Copy to Clipboard</button>
-    <h2 id="h2">Choose your character set:</h2>
+    <h2 id="character-set-label">Choose your character set:</h2>
     <input
       type="checkbox"
       name="lowercase"
@@ -63,3 +63,148 @@
     >
   </section>
 </template>
+<script>
+export default {
+  data: () => ({
+    password: "ABC",
+    passwordLength: "8",
+    checkLowerCase: false,
+    checkUpperCase: false,
+    checkNumbers: false,
+    checkSymbols: false,
+  }),
+  methods: {
+    generatePassword() {
+      let characters = "";
+      let password = "";
+      if (this.checkLowerCase) {
+        characters += "abcdefghijklmnopqrstuvwxyz";
+      }
+      if (this.checkUpperCase) {
+        characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      }
+      if (this.checkNumbers) {
+        characters += "0123456789";
+      }
+      if (this.checkSymbols) {
+        characters += "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+      }
+
+      for (let i = 0; i < this.passwordLength; i++) {
+        password += characters.charAt(
+          Math.floor(Math.random() * characters.length)
+        );
+      }
+      this.password = password;
+      console.log(this.password);
+      console.log(this.checkLowerCase);
+    },
+
+    changePasswordLength() {
+      let slider = document.getElementById("slider");
+      this.passwordLength = slider.value;
+    },
+  },
+  watch: {
+    checkLowerCase(newVal) {
+      if (newVal == true) {
+        this.generatePassword();
+      } else {
+        this.generatePassword();
+      }
+    },
+    checkUpperCase(newVal) {
+      if (newVal == true) {
+        this.generatePassword();
+      } else {
+        this.generatePassword();
+      }
+    },
+    checkNumbers(newVal) {
+      if (newVal == true) {
+        this.generatePassword();
+      } else {
+        this.generatePassword();
+      }
+    },
+    checkSymbols(newVal) {
+      if (newVal == true) {
+        this.generatePassword();
+      } else {
+        this.generatePassword();
+      }
+    },
+    passwordLength(newVal, oldVal) {
+      if (newVal != oldVal) {
+        this.generatePassword();
+      }
+    },
+  },
+};
+</script>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Arvo");
+
+html {
+  font-family: Arvo;
+  text-align: center;
+  background-color: black;
+
+  color: #2292a4;
+  margin-top: 60px;
+}
+
+header {
+  font-size: 2rem;
+}
+
+#box {
+  background-color: lightgray;
+  align-content: center;
+
+  height: 3rem;
+  width: 30rem;
+  display: block;
+  color: red;
+}
+#generated-password {
+  color: red;
+  text-align: center;
+}
+#copy-to-clipboard {
+  font-family: Arvo;
+  font-size: 1.5rem;
+  text-align: center;
+  background-color: #2292a4;
+  color: black;
+}
+#character-set-label {
+  color: white;
+}
+.button-character-set {
+  font-family: Arvo;
+  font-size: 1.5rem;
+  background-color: black;
+  color: #2292a4;
+  border: 10px solid lightgray;
+}
+input[type="checkbox"] {
+  all: unset;
+}
+input[type="checkbox"]:checked + label {
+  background-color: #2292a4;
+}
+input[type="checkbox"]:focus + label {
+  border: 5px;
+}
+
+#slider-label {
+  color: white;
+  display: block;
+}
+
+#slider {
+  size: 50%;
+}
+</style>
