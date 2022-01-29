@@ -9,46 +9,51 @@
   <section>
     <button id="copy-to-clipboard">Copy to Clipboard</button>
     <h2 id="character-set-label">Choose your character set:</h2>
-    <input
-      type="checkbox"
-      name="lowercase"
-      v-model="checkLowerCase"
-      value="lowercase"
-      class="button-character-set"
-      v-on:click="generatePassword()"
-    />
-    <label for="lowercase">Lowercase</label>
+    <div class="checkboxes">
+      <input
+        type="checkbox"
+        name="lowercase"
+        v-model="checkLowerCase"
+        value="lowercase"
+        id="lowercase"
+        class="button-character-set"
+        v-on:click="generatePassword()"
+      />
+      <label for="lowercase">Lowercase</label>
 
-    <input
-      type="checkbox"
-      name="uppercase"
-      value="uppercase"
-      v-model="checkUpperCase"
-      class="button-character-set"
-      v-on:click="generatePassword()"
-    />
-    <label for="uppercase">Uppercase</label>
+      <input
+        type="checkbox"
+        name="uppercase"
+        value="uppercase"
+        v-model="checkUpperCase"
+        class="button-character-set"
+        id="uppercase"
+        v-on:click="generatePassword()"
+      />
+      <label for="uppercase">Uppercase</label>
 
-    <input
-      v-on:click="generatePassword()"
-      type="checkbox"
-      value="numbers"
-      name="numbers"
-      v-model="checkNumbers"
-      class="button-character-set"
-    />
-    <label for="numbers">Numbers</label>
+      <input
+        v-on:click="generatePassword()"
+        type="checkbox"
+        value="numbers"
+        name="numbers"
+        id="numbers"
+        v-model="checkNumbers"
+        class="button-character-set"
+      />
+      <label for="numbers">Numbers</label>
 
-    <input
-      v-on:click="generatePassword()"
-      type="checkbox"
-      name="symbols"
-      value="symbols"
-      v-model="checkSymbols"
-      class="button-character-set"
-    />
-    <label for="symbols">Symbols</label>
-
+      <input
+        v-on:click="generatePassword()"
+        type="checkbox"
+        name="symbols"
+        value="symbols"
+        id="symbols"
+        v-model="checkSymbols"
+        class="button-character-set"
+      />
+      <label for="symbols">Symbols</label>
+    </div>
     <!-- Slider  -->
 
     <input
@@ -69,7 +74,7 @@
 <script>
 export default {
   data: () => ({
-    password: "admin",
+    password: "click below",
     passwordLength: "8",
     checkLowerCase: false,
     checkUpperCase: false,
@@ -154,7 +159,7 @@ html {
   text-align: center;
   background-color: #5585b5;
   color: #bbe4e9;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 header {
@@ -180,10 +185,13 @@ header {
 }
 
 #copy-to-clipboard {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   text-align: center;
-  background-color: #2292a4;
+  background-color: #8c9aec;
   color: black;
+  border-radius: 10px;
+  width: 220px;
+  height: 60px;
 }
 
 #character-set-label {
@@ -198,23 +206,32 @@ header {
 }
 
 input[type="checkbox"] {
-  all: unset;
+  /* width: 25px;
+  height: 25px; */
+  display: none;
 }
 
-input[type="checkbox"]:checked + label {
-  background-color: #2292a4;
+input:checked + label {
+  background-color: rgb(68, 79, 241);
+  font-weight: bolder;
 }
 
-input[type="checkbox"]:focus + label {
-  border: 5px;
+label {
+  font-size: 1.8rem;
+  margin: 0.5rem;
+  border: 4px solid #6f5fb8;
+  border-radius: 10px;
+  display: block;
 }
 
 #slider-label {
   color: white;
   display: block;
+  border: none;
 }
 
 #slider {
   size: 50%;
+  margin-top: 1rem;
 }
 </style>
