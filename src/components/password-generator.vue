@@ -16,7 +16,6 @@
         v-model="checkLowerCase"
         value="lowercase"
         id="lowercase"
-        class="button-character-set"
         v-on:click="generatePassword()"
       />
       <label for="lowercase">Lowercase</label>
@@ -26,7 +25,6 @@
         name="uppercase"
         value="uppercase"
         v-model="checkUpperCase"
-        class="button-character-set"
         id="uppercase"
         v-on:click="generatePassword()"
       />
@@ -39,7 +37,6 @@
         name="numbers"
         id="numbers"
         v-model="checkNumbers"
-        class="button-character-set"
       />
       <label for="numbers">Numbers</label>
 
@@ -50,7 +47,6 @@
         value="symbols"
         id="symbols"
         v-model="checkSymbols"
-        class="button-character-set"
       />
       <label for="symbols">Symbols</label>
     </div>
@@ -104,8 +100,6 @@ export default {
         );
       }
       this.password = password;
-      /* console.log(this.password);
-      console.log(this.checkLowerCase); */
     },
 
     changePasswordLength() {
@@ -198,16 +192,7 @@ header {
   color: white;
 }
 
-.button-character-set {
-  font-size: 1.5rem;
-  background-color: black;
-  color: #2292a4;
-  border: 10px solid lightgray;
-}
-
 input[type="checkbox"] {
-  /* width: 25px;
-  height: 25px; */
   display: none;
 }
 
@@ -233,5 +218,21 @@ label {
 #slider {
   size: 50%;
   margin-top: 1rem;
+}
+
+@media screen and (min-width: 760px) {
+  label {
+    width: 50vw;
+    display: inline;
+  }
+
+  #slider {
+    display: inline;
+  }
+
+  #slider-label {
+    display: block;
+    margin: 0 auto;
+  }
 }
 </style>
