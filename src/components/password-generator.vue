@@ -7,7 +7,6 @@
   </div>
 
   <section>
-    <button id="copy-to-clipboard">Copy to Clipboard</button>
     <h2 id="character-set-label">Choose your character set:</h2>
     <div class="checkboxes">
       <input
@@ -176,16 +175,6 @@ header {
 #generated-password {
   color: red;
   text-align: center;
-}
-
-#copy-to-clipboard {
-  font-size: 1.4rem;
-  text-align: center;
-  background-color: #8c9aec;
-  color: black;
-  border-radius: 10px;
-  width: 220px;
-  height: 60px;
 }
 
 #character-set-label {
